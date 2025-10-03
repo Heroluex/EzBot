@@ -5,6 +5,8 @@ module.exports = {
     .setName('ping')
     .setDescription('Pong!'),
   async execute(interaction) {
-    await interaction.reply('Pong! 🏓');
+    const sent = await interaction.reply({ content: 'Pong! 🏓', fetchReply: true });
+  const botLatency = sent.createdTimestamp - interaction.createdTimestamp;
+  await interaction.editReply(`Pong! 🏓\nBot-Latenz: ${botLatency} ms`);
   },
 };
