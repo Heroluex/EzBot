@@ -29,7 +29,6 @@ npm start
 
 ## Commands
 
-- `/hallo`: Der Bot grüßt zurück.
 - `/ping`: Pong!
 - `/giveaway`: Öffnet ein interaktives Setup-Embed mit Select Menu für Dauer und Buttons für Preis/Rolle. Wähle Dauer aus dem Menü, setze Preis und Rolle (optional) mit Buttons, dann starte. Teilnehmer reagieren mit 🎉. Nur User mit der Rolle nehmen teil, falls gesetzt.
 
@@ -42,7 +41,3 @@ DISCORD_TOKEN=dein_bot_token_hier
 ```
 
 **Wichtig:** Teile deinen Token NIEMALS öffentlich! Er ist wie ein Passwort.
-
-## Erweiterungen
-
-Falls du mehr Features willst (z.B. Musik mit Lavalink, Moderation oder Slash-Commands), lass es mich wissen – wir bauen das aus!
