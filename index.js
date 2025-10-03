@@ -1,5 +1,5 @@
 require('dotenv').config();
-const { Client, GatewayIntentBits, REST, Routes, Collection } = require('discord.js');
+const { Client, GatewayIntentBits, REST, Routes, Collection, SlashCommandBuilder, EmbedBuilder } = require('discord.js');
 const fs = require('fs');
 const path = require('path');
 
@@ -30,23 +30,27 @@ for (const file of commandFiles) {
   }
 }
 
+
 const rest = new REST().setToken(process.env.DISCORD_TOKEN);
 
 (async () => {
   try {
-    console.log(`Started refreshing ${commands.length} application (/) commands.`);
-
-    const data = await rest.put(
-      Routes.applicationGuildCommands(process.env.CLIENT_ID, process.env.GUILD_ID),
-      { body: commands },
-    );
-
-    console.log(`Successfully reloaded ${data.length} application (/) commands.`);
+    // Nur alle Commands für die eine Guild registrieren
+    const guildId = process.env.GUILD_ID;
+    if (!guildId) {
+      console.warn('GUILD_ID nicht gesetzt. Registrierung übersprungen.');
+      return;
+    }
+    // Erst löschen, dann neu registrieren
+    await rest.put(Routes.applicationGuildCommands(process.env.CLIENT_ID, guildId), { body: [] }).catch(() => {});
+    const data = await rest.put(Routes.applicationGuildCommands(process.env.CLIENT_ID, guildId), { body: commands });
+    console.log(`Guild commands registered: ${data.length}`);
   } catch (error) {
     console.error(error);
   }
 })();
 
+// Event-Registrierung
 const eventsPath = path.join(__dirname, 'events');
 const eventFiles = fs.readdirSync(eventsPath).filter(file => file.endsWith('.js'));
 
