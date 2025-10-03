@@ -1,0 +1,11 @@
+bot:
+  prefix: '!'
+  language: 'de'
+
+giveaway:
+  default_winners: 1
+  allow_role_requirement: true
+
+autorole:
+  enabled: true
+  role_id: ""

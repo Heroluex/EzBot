@@ -1,0 +1,16 @@
+{
+  "name": "ezbot",
+  "version": "1.0.0",
+  "description": "Ein cooler Discord-Bot",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "discord.js": "^14.14.1",
+    "dotenv": "^16.3.1"
+  },
+  "keywords": ["discord", "bot"],
+  "author": "Dein Name",
+  "license": "MIT"
+}
