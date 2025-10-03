@@ -1,6 +1,12 @@
 bot:
   prefix: '!'
   language: 'de'
+  activities:
+    - text: "Ez"
+      type: play
+    - text: "https://github.com/Heroluex/EzBot"
+      type: watch
+  activity_interval: 30 # Sekunden
 
 giveaway:
   default_winners: 1

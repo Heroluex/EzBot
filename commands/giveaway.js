@@ -58,7 +58,7 @@ async function endGiveaway(client, messageId) {
       const shuffled = users.sort(() => Math.random() - 0.5);
       const winnerIds = shuffled.slice(0, winnersCount);
       const mentions = winnerIds.map(id => `<@${id}>`).join(', ');
-      await channel.send({ content: `🎉 Glückwunsch ${mentions}! Ihr habt **${gw.prize}** gewonnen!` });
+      await channel.send({ content: `🎉 Glückwunsch ${mentions}! Du hast **${gw.prize}** gewonnen!` });
     }
   } catch (err) {
     console.error('Fehler beim Beenden des Giveaways:', err);
@@ -99,7 +99,7 @@ function buildGiveawayEmbed({ prize, endTime, winners, roleId, hostId }) {
 }
 
 module.exports = {
-  data: new SlashCommandBuilder().setName('giveaway').setDescription('Erstellt ein neues Giveaway über ein Eingabe-Modal'),
+  data: new SlashCommandBuilder().setName('giveaway').setDescription('Erstellt ein neues Giveaway'),
   async execute(interaction) {
     const modal = buildCreateModal();
     await interaction.showModal(modal);

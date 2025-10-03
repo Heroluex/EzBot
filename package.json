@@ -8,9 +8,13 @@
   },
   "dependencies": {
     "discord.js": "^14.14.1",
-    "dotenv": "^16.3.1"
+    "dotenv": "^16.3.1",
+    "js-yaml": "^4.1.0"
   },
-  "keywords": ["discord", "bot"],
-  "author": "Dein Name",
+  "keywords": [
+    "discord",
+    "bot"
+  ],
+  "author": "Heroluex",
   "license": "MIT"
 }
